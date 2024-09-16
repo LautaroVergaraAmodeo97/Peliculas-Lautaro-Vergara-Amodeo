@@ -18,7 +18,7 @@ app = FastAPI(docs_url=None, redoc_url=None)
 # Cargar el DataFrame desde el archivo Parquet
 data_path = 'data.parquet'
 try:
-    data = pd.read_parquet(data_path)
+    data = pd.read_parquet(data_path, engine='fastparquet')
     data_status = {"status": "DataFrame loaded", "rows": len(data)}
     logger.info(f"Data status: {data_status}")
 except Exception as e:
